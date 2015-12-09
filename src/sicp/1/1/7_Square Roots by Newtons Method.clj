@@ -2,9 +2,8 @@
   (:require math.numeric-tower))
 ; SICP Lecture 1a
 
-; Heron of Alexandria's method for calculating
-; square roots
-(defn average [a b] 
+; Heron of Alexandria's (Newton's) method for calculating square roots
+(defn average [a b]
   (/ (+ a b) 2))
 
 (defn my-abs [a]
