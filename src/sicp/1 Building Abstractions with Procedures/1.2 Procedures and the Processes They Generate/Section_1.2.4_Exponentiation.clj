@@ -1,12 +1,14 @@
-(ns sicp.1.2.4_Exponentiation)
+; bⁿ
 
-; Simple exponentiation function
-(defn expt-1 [b n]
+; Recursive version:
+; bⁿ=b⋅bⁿ⁻¹,
+; b°=1
+(defn expt [b n]
   (if (= n 0)
       1
       (* b (expt b (- n 1)))))
 
-; Linear recursive version:
+; Iterative version:
 ; O(n) O(1)
 (defn expt-iter [b counter product]
   (if (= counter 0)
@@ -15,14 +17,16 @@
                 (- counter 1)
                 (* b product))))
 
-(defn expt-2 [b n]
+(defn expt [b n]
   (expt-iter b n 1))
 
-; Optimized linear recursive version:
+; Optimized recursive version:
 (defn square [x] (* x x))
+
 (defn fast-expt [b n]
   (cond (= n 0) 1
         (even? n) (square (fast-expt b (/ n 2)))
         :else (* b (fast-expt b (- n 1)))))
 
+;; even? is part of clojure standard library
 

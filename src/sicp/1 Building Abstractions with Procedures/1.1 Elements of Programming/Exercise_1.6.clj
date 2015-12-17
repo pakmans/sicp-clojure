@@ -13,8 +13,7 @@
 (defn abs [x]
   (if (> x 0)
     x
-    (- x)
-    ))
+    (- x)))
 
 (defn improve [guess x]
   (average guess (/ x guess)))

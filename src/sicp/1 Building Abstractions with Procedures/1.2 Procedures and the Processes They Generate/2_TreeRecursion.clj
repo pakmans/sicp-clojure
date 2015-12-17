@@ -1,5 +1,3 @@
-(ns sicp.1.2.2)
-
 ; Lecture 1b
 ; Compute the fibonacci series up to the nth element
 ; Simple, but inneficient algorithm

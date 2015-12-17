@@ -1,8 +1,5 @@
-(ns sicp.lec2a)
-
-;SICP Lecture 2a
-
 ; 1.3.1 Procedures as Arguments
+;SICP Video Lecture 2a
 
 ; Sum of integers from a to b
 (defn sum-int [a b]
@@ -37,3 +34,26 @@
 
 ; sum-sq:
 (sum (fn[x] (* x x)) 0 (fn [x] (inc x)) 10)
+
+; sum-pi
+; Not very idiomatic, but following the book
+(defn pi-sum [a b] 
+  (defn pi-term [x] (/ 1.0 (* x (+ x 2))))
+  (defn pi-next [x] (+ x 4))
+  (sum pi-term a pi-next b))
+
+(* 8 (pi-sum 1 1000))
+; 3.139592655589783
+
+
+; Integral aproximation
+(defn integral [f a b dx]
+  (defn add-dx [x] (+ x dx))
+  (* dx (sum f (+ a (/ dx 2.0)) add-dx b)))
+
+(defn cube [x] (* x x x))
+
+(integral cube 0 1 0.01)
+; 0.24998750000000042
+
+
