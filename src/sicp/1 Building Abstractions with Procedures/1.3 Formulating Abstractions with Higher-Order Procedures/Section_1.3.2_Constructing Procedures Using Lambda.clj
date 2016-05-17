@@ -1,5 +1,3 @@
-(ns sicp.1_3_2)
-
 ;Lambda
 (fn [x] (+ x 4))
 

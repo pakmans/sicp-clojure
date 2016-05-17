@@ -1,5 +1,3 @@
-(ns sicp.2.1.1_ArithmeticOperationsForRationalNumbers)
-
 (defn make-rat [n d]
   (list n d))
 
@@ -22,7 +20,7 @@
 (defn gcd [a b]
   (if (= b 0)
     a
-    (recur b (rem a b))))
+    (gcd b (rem a b))))
 
 (defn make-rat [n d]
   (let [g (gcd n d)]
