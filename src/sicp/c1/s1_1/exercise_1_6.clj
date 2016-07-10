@@ -1,3 +1,9 @@
+(ns ^{:doc "Alyssa P. Hacker doesn't see why if needs to be provided as a special form
+            Why can't I just define it as an ordinary procedure in terms of cond?
+            she asks. Alyssa's friend Eva Lu Ator claims this can indeed be done, and
+            she defines a new version of it:"}
+  sicp.c1.s1-1.exercise-1-6)
+
 ;; Excercise 1.6
 ;; Alyssa P. Hacker doesn't see why if needs to be provided as a special form. 
 ;; "Why can't I just define it as an ordinary procedure in terms of cond?" 

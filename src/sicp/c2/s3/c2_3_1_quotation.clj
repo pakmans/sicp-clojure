@@ -1,13 +1,12 @@
-(ns sicp.2.3.1_Quotation)
-
-
 (defn memq [item x]
   (cond (empty? x) false
         (= item (first x)) x
-        :else (memq item (rest x))))
+        :else (recur item (rest x))))
+        ; :else (memq item (rest x))))
 
 
-; Exercise 2.53.  What would the interpreter print in response to evaluating each of the following expressions?
+; Exercise 2.53.  What would the interpreter print in response to evaluating
+; each of the following expressions?
 
 (list 'a 'b 'c)
 
@@ -36,7 +35,6 @@
 
 ; (red shoes blue socks)
 
-
 ; Exercise 2.54. Implement equal? as a procedure
 
 (defn equal? [l1 l2]
@@ -44,8 +42,22 @@
         (and (= (first l1) (first l2)) (equal? (rest l1) (rest l2))) true
         :else false))
 
+; Interesting cases to note:
+(equal? nil nil)
+; true
+(equal? nil ())
+;true
+(first nil)
+;nil
+(first ())
+;nil
+
 ; Exercise 2.55.  Eva Lu Ator types to the interpreter the expression
 
 (first ''abracadabra)
 
 ; To her surprise, the interpreter prints back quote. Explain.
+;
+; 'abracadabra is equivalent to (quote abracadabra) which evaluates to abracadabra
+; ''abracadabra is equivalent to (quote (quote abracadabra)) which evaluates to (quote abracadabra)
+; So calling first on the list consisting of quote and abracadabra yields the word quote
