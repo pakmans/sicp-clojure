@@ -8,7 +8,12 @@
 ; applications for which you would use this representation in preference to
 ; the non-duplicate one?
 ;
-; element-of-set? and adjoin-set don't need to change.
+; element-of-set? don't need to change.
+
+(defn intersection-ordered-set [set1 set2]
+  (cond (or (empty? set1) (empty? set2)) ()
+        (element-of-set? (first set1) set2) (cons (first set1) (intersection-ordered-set (rest set1) set2))
+        :else (recur (rest set1) set2)))
 
 ; adjoin-set and union-set could be simplified a bit since we don't need to 
 ; check for duplicate items.

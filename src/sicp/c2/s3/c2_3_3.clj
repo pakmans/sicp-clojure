@@ -12,7 +12,7 @@
 (defn intersection-set [set1 set2]
   (cond (or (empty? set1) (empty? set2)) ()
         (element-of-set? (first set1) set2) (cons (first set1)
-                                                  (intersection-set (rest set1) set2)) ; recur won't work here because it is not on tail position
+                                                  (intersection-set (rest set1) set2))
         :else (recur (rest set1) set2)))
         ; :else (intersection-set (rest set1) set2)))
 
